@@ -17,7 +17,14 @@ app.use(cookieParser());
 
 
 app.use(express.json());
-//connecting to database
+
+const allowOrigin =["https://mentorship-frontend-5vsz.vercel.app/","http://localhost:5173/"]
+app.use(cors({       
+    origin:"",
+    Credentials:true,
+    methods:["GET","PUT","DELETE","POST"],
+    allowedHeaders:["context-type","Authorization"]
+ }))
 app.use("/api/auth",AuthRoutes);
 app.use("/api/profile", ProfileRoutes)
 
