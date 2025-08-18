@@ -6,7 +6,12 @@ const authSchema = new mongoose.Schema({
     role:{type:String, require:true,
          enum :["admin","mentor","mentee"],
         default: "mentee"
-    }
+    },
+    bio:{type:String, default:""},
+    skills:{type:String, },
+    goals:{type:String, },
+
+
 }  ,  {timestamps:true},
      {minimize: false   },
 
