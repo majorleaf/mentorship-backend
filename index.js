@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 import connectDb from "./config/Mongodb.js";
 import AuthRoutes from "./routes/AuthRoutes.js";
 import ProfileRoutes from "./routes/profileRoutes.js";
-
+import mentorRoutes from "./routes/mentorRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -27,6 +27,7 @@ app.use(cors({
  }))
 app.use("/api/auth",AuthRoutes);
 app.use("/api/profile", ProfileRoutes)
+app.use("/api/", mentorRoutes)
 
 
 app.get("/", (req, res)=>{
