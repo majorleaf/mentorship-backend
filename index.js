@@ -20,7 +20,7 @@ app.use(express.json());
 
 const allowOrigin =["https://mentorship-frontend-5vsz.vercel.app/","http://localhost:5173/"]
 app.use(cors({       
-    origin:"",
+    origin: "http://localhost:5173",
     Credentials:true,
     methods:["GET","PUT","DELETE","POST"],
     allowedHeaders:["context-type","Authorization"]
