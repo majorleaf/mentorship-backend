@@ -12,11 +12,6 @@ dotenv.config();
 const app = express();
 
 
-app.use(cookieParser());
-
-
-app.use(express.json());
-
 app.use(cors({       
     origin:[ "https://mentorship-frontend-5vsz.vercel.app",  "https://mentorship-frontend-ho2c.vercel.app/","http://localhost:5173/"],
     credentials:true,
@@ -31,6 +26,11 @@ app.use("/api/", mentorRoutes)
 app.get("/", (req, res)=>{
     res.json({message: " welcome to backend "})
 })
+
+app.use(cookieParser());
+
+
+app.use(express.json());
 
 connectDb();
 
