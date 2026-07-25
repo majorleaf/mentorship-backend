@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import connectDb from "./config/Mongodb.js";
 import AuthRoutes from "./routes/AuthRoutes.js";
+import aiRoutes from "./routes/aiRoutes.js"
 import ProfileRoutes from "./routes/profileRoutes.js";
 import mentorRoutes from "./routes/mentorRoutes.js";
 
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use("/api/auth", AuthRoutes);
 app.use("/api/profile", ProfileRoutes);
 app.use("/api/", mentorRoutes);
+app.use("/api", aiRoutes);
 
 app.get("/", (req, res) => {
   res.json({ message: "welcome to backend" })
