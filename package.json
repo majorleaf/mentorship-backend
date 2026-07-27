@@ -11,6 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@google/genai": "^2.13.0",
     "animejs": "^4.1.2",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",

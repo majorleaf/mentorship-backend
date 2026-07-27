@@ -1,5 +1,5 @@
 import ai from "../config/ai.js";
-import User from "../models/User.js";
+import User from "../models/userSchema.js";
 
 export const chatWithMentor = async (req, res) => {
     try { 
@@ -61,6 +61,15 @@ Their role on the platform is: ${user.role}.`;
                 temperature: 0.7, //Balanced creativity and focused advice
             }
         });
+
+        const cleanup = () => {
+            if (!res.headersSent) {
+                res.end();
+            }
+        };
+
+        req.on("close", cleanup);
+        req.on("error", cleanup);
 
 
         for await (const chunk of responseStream) {

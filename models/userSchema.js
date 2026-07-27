@@ -39,7 +39,6 @@ const userSchema = new mongoose.Schema({
 // Indexing for performance
 // In order to make searching for mentors under specific enterprise fast
 userSchema.index({ organizationId: 1, role: 1 });
-userSchema.index({ email: 1});
 
 const User = mongoose.models.users || mongoose.model('User', userSchema);
 

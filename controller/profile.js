@@ -1,4 +1,4 @@
-import AuthModel from "../models/authSchema.js";
+
 
 // Get user data by ID
 const getUserData = async (req, res) => {
