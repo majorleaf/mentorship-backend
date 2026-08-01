@@ -12,19 +12,16 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({       
-  origin: [
-    "https://mentorship-frontend-5vsz.vercel.app",
-    "https://mentorship-frontend-ho2c.vercel.app",
-    "http://localhost:5173"
-  ],
+app.use(cookieParser());
+app.use(express.json());
+app.use(cors({
+  origin: ["https://mentorship-frontend-5vsz.vercel.app", "https://mentorship-frontend-ho2c.vercel.app", "http://localhost:5173"],
   credentials: true,
   methods: ["GET", "PUT", "DELETE", "POST"],
   allowedHeaders: ["content-type", "Authorization"]
-}))
+}));
+app.use(bodyParser.json());
 
-app.use(cookieParser());
-app.use(express.json());
 
 app.use("/api/auth", AuthRoutes);
 app.use("/api/profile", ProfileRoutes);
