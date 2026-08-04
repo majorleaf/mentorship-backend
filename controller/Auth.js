@@ -16,7 +16,7 @@ const register = async (req, res) => {
     }
 
     // check if user already exists
-    const existUser = await User.findOne({ email: email.tolowerCase() });
+    const existUser = await User.findOne({ email: email.toLowerCase() });
     if (existUser) {
       return res.status(400).json({ message: "User already exists" });
     }
@@ -71,7 +71,7 @@ const register = async (req, res) => {
 
     return res.status(201).json({
       message: "User registered successfully",
-      token,  // ✅ send token back
+      token,  // send token back
       user: {
         id: user._id,
         name: user.name,
@@ -129,7 +129,7 @@ const login = async (req, res) => {
     return res.status(200).json({
       message: "Login successful",
       token,  
-      // ✅ send token back
+      //  send token back
       user: {
         id: user._id,
         name: user.name,
