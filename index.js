@@ -31,6 +31,10 @@ app.get("/", (req, res) => {
   res.json({ message: "welcome to backend" })
 })
 
+app.get('/api/health',(req, res) => {
+  res.json({ status: "ok "})
+})
+
 connectDb();
 
 app.listen(8000, () => {
