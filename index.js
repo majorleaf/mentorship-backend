@@ -7,6 +7,7 @@ import connectDb from "./config/Mongodb.js";
 import AuthRoutes from "./routes/AuthRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js"
 import ProfileRoutes from "./routes/profileRoutes.js";
+import mentorRoutes from "./routes/mentorRoutes.js";
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use("/api/auth", AuthRoutes);
 app.use("/api/profile", ProfileRoutes);
 app.use("/api", aiRoutes);
+app.use("/api", mentorRoutes);
 
 app.get("/", (req, res) => {
   res.json({ message: "welcome to backend" })
@@ -33,6 +35,10 @@ app.get("/", (req, res) => {
 
 app.get('/api/health',(req, res) => {
   res.json({ status: "ok "})
+})
+
+app.get('/api/users/:id/stats', (req, res) => {
+  const userId = req.params.id;
 })
 
 connectDb();
