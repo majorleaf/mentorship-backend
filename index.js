@@ -37,9 +37,6 @@ app.get('/api/health',(req, res) => {
   res.json({ status: "ok "})
 })
 
-app.get('/api/users/:id/stats', (req, res) => {
-  const userId = req.params.id;
-})
 
 connectDb();
 
